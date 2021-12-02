@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) {
-            out.println("{\n\"message\": \""+"Working"+"\"\n}");
+            out.println("Enter Response here as json");
         }
     }
 

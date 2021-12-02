@@ -1,5 +1,5 @@
 let id = 'login';
-let urlPattern = 'fetchme';
+let urlPattern = 'loginServlet';
 
 const app = (inputs) => {
     alert(inputs);
