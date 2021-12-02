@@ -1,5 +1,45 @@
+:root{
+    --brown: #7C3626;
+    --green: #679436;
+    --dark: #1E2019;
+    --marine: #087E8B;
+    --light: #EBF5EE;
+    --coolblue: #A8E3F0;
+}
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+
+/* width: clamp(min, preffered, max); */
+p {
+    max-width: 50ch;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+nav ul {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    width: clamp(200px, 30%, 500px);
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav a{
+    text-decoration: none !important;
+    color: var(--dark) !important;
 }

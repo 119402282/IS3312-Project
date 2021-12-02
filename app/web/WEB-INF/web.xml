@@ -5,7 +5,7 @@
     </welcome-file-list>  
     
     <servlet>
-        <servlet-name>FetchServlet</servlet-name>
+        <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controller.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
