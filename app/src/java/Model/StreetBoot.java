@@ -3,14 +3,14 @@ package Model;
 public class StreetBoot extends Boot {
 
     public StreetBoot() {
-        type = "fashion";
+        type = "Street";
     }
 
-    public StreetBoot(int code, String name, String description, double size, String color, double price, String brand) {
+    public StreetBoot(int code, String name, String description, int size, String color, double price, String brand) {
         this.code = code;
         this.name = name;
         this.description = description;
-        this.type = "fashion";
+        this.type = "Street";
         this.size = size;
         this.color = color;
         this.price = price;

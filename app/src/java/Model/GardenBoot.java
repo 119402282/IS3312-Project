@@ -3,14 +3,14 @@ package Model;
 public class GardenBoot extends Boot {
 
     public GardenBoot() {
-        type = "wellington";
+        type = "Wellington";
     }
 
-    public GardenBoot(int code, String name, String description, double size, String color, double price, String brand) {
+    public GardenBoot(int code, String name, String description, int size, String color, double price, String brand) {
         this.code = code;
         this.name = name;
         this.description = description;
-        this.type = "wellington";
+        this.type = "Wellington";
         this.size = size;
         this.color = color;
         this.price = price;

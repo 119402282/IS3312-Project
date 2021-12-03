@@ -8,7 +8,7 @@ public class BootFactory implements Cobbler {
         String name = props[1];
         String type = props[2];
         String description = props[3];
-        double size = Double.parseDouble(props[4]);
+        int size = Integer.parseInt(props[4]);
         String color = props[5];
         double price = Double.parseDouble(props[6]);
         String brand = props[7];

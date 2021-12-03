@@ -6,7 +6,7 @@ public abstract class Boot {
     protected String name;
     protected String description;
     protected String type;
-    protected double size;
+    protected int size;
     protected String color;
     protected double price;
     protected String brand;
@@ -22,11 +22,11 @@ public abstract class Boot {
         this.code = code;
     }
 
-    public double getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(double size) {
+    public void setSize(int size) {
         this.size = size;
     }
 

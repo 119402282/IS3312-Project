@@ -3,14 +3,14 @@ package Model;
 public class SailingBoot extends Boot {
 
     public SailingBoot() {
-        type = "water";
+        type = "Sailing";
     }
 
-    public SailingBoot(int code, String name, String description, double size, String color, double price, String brand) {
+    public SailingBoot(int code, String name, String description, int size, String color, double price, String brand) {
         this.code = code;
         this.name = name;
         this.description = description;
-        this.type = "water";
+        this.type = "Sailing";
         this.size = size;
         this.color = color;
         this.price = price;

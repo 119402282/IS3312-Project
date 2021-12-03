@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Murecho&display=swap');
+
 :root{
     --brown: #8B635C;
     --green: #3A7D44;
@@ -7,10 +9,13 @@
 }
 
 
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Murecho', sans-serif;
+
 }
 
 .current {
@@ -154,7 +159,7 @@ section {
 }
 #footer{
     margin: 0;
-    padding: 0;
+    padding-top: 1rem;
     height: 7rem;
     background: var(--light) !important;
     font-size: 1.1rem;
@@ -163,6 +168,8 @@ section {
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
+    
+    overflow: hidden;
 }
 
 
@@ -171,7 +178,45 @@ h1 {
     color: var(--dark);
 }
 .page-title {
-    padding: 5rem;
+    padding: 3rem;
+}
+
+@media screen and (max-width: 1440px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .products {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .product-body, .product-img{
+        width: 95% !important;
+    }
+
+    div.product-details, div.image-container {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        align-items: center;
+        overflow: hidden;
+        max-width: 35rem;
+    }
+    #product-container {
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .products {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
 }
 
 .products {
@@ -179,19 +224,39 @@ h1 {
     z-index: 0;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 25%));
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: space-between;
     gap: 3rem;
 }
 
 .card {
-    max-width: 20rem;
+    max-width: 100%;
     z-index: 0;
+}
+
+.card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    color: var(--marine);
+    text-decoration-color:  var(--marine);
 }
 
 .card-body span{
     display: flex;
-    justify-content: center;
+    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card a[href^="product"]{
+    color: var(--marine);
+}
+
+.card-body a[href^="trolley"], .product-body a[href^="trolley"] {
+    background-color: var(--green) !important;
+    width: 100% !important;
 }
 
 .card-body p {
@@ -200,4 +265,45 @@ h1 {
 
 p.card-text {
     margin-bottom: 1rem;
+}
+
+.card-img-top{
+    float: left;
+    width:  100px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-img {
+    
+    width:  80%;
+    max-height: 30rem;
+    object-fit: cover;
+}
+.image-container {
+    width: 50% !important;
+    min-width: 22rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.product-body{
+    width: 80% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;    
+}
+
+.product-details{
+    width: 50% !important;
+    min-width: 22rem;
+    display: grid; 
+    place-items: center;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    
 }

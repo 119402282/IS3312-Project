@@ -3,14 +3,14 @@ package Model;
 public class AllTerrainBoot extends Boot {
 
     public AllTerrainBoot() {
-        type = "forest";
+        type = "Hiking";
     }
 
-    public AllTerrainBoot(int code, String name, String description, double size, String color, double price, String brand) {
+    public AllTerrainBoot(int code, String name, String description, int size, String color, double price, String brand) {
         this.code = code;
         this.name = name;
         this.description = description;
-        this.type = "forest";
+        this.type = "Hiking";
         this.size = size;
         this.color = color;
         this.price = price;

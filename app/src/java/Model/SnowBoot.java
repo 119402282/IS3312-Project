@@ -3,14 +3,14 @@ package Model;
 public class SnowBoot extends Boot {
 
     public SnowBoot() {
-        type = "snow";
+        type = "Snow";
     }
 
-    public SnowBoot(int code, String name, String description, double size, String color, double price, String brand) {
+    public SnowBoot(int code, String name, String description, int size, String color, double price, String brand) {
         this.code = code;
         this.name = name;
         this.description = description;
-        this.type = "snow";
+        this.type = "Snow";
         this.size = size;
         this.color = color;
         this.price = price;
