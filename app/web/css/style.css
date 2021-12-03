@@ -19,8 +19,10 @@
 }
 
 .current {
-    color: var(--green)  !important;
-    font-weight: 800 !important;
+    color: #46af56  !important;
+    font-weight: 900 !important;
+    text-shadow: 1px 1px 1px var(--green) !important;
+    box-sizing: content-box;
 }
 
 /* width: clamp(min, preffered, max); */
@@ -81,6 +83,7 @@ header {
 
 header h1 {
     color: var(--dark);
+    text-shadow: 4px 4px 10px var(--light) !important;
 }
 
 header button{
@@ -306,4 +309,14 @@ p.card-text {
     display: flex;
     flex-wrap: wrap;
     
+}
+
+.line-item {
+    display: flex;
+    align-items: center;
+}
+
+#checkbox {
+    display: grid !important;
+    place-items: center !important;
 }
