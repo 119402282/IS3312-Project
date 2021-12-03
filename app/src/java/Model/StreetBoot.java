@@ -35,8 +35,8 @@ public class StreetBoot extends Boot {
     public String toJSON() {
         return "{\n" +
                 "\"code\": \"" + code + "\",\n" +
-                "\"name\": \"" + name + "\",\n" +
-                "\"description\": \"" + description + "\",\n" +
+                "\"name\": \"" + name.replace("\"","'") + "\",\n" +
+                "\"description\": \"" + description.replace("\"","'") + "\",\n" +
                 "\"type\": \"" + type + "\",\n" +
                 "\"size\": \"" + size + "\",\n" +
                 "\"color\": \"" + color + "\",\n" +
