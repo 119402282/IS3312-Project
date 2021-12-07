@@ -1,12 +1,19 @@
-public abstract class user {
-    protected String username;
+package Model;
 
-    public String getUsername() {
-        return username;
+public abstract class User {
+
+    protected String email;
+    protected String password;
+
+    public abstract String toString();
+    public abstract String toJSON();
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -17,6 +24,4 @@ public abstract class user {
         this.password = password;
     }
 
-    protected String password;
-    protected abstract String toFile();
 }
