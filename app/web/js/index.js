@@ -2,7 +2,7 @@ let id = 'login';
 let urlPattern = 'loginServlet';
 
 const app = (inputs) => {
-    alert(inputs);
+    //alert(inputs);
 
 }
 
@@ -24,7 +24,7 @@ const postHTTP = async (content, urlPattern) => {
             },
             body: encodeURI(content)
         });
-    const {message} = await response.json();
+    const message = await response.text();
     return message;
 };
 

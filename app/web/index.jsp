@@ -1,3 +1,8 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,6 +13,7 @@
         <title>Home - HikersDelight</title>
         <link href="css/style.css" rel="stylesheet" />
         <script src="js/index.js" defer type="text/javascript"></script>
+        <script src="js/modal.js" defer type="text/javascript"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -17,21 +23,19 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav id="nav" class="container-fluid px-3 px-lg-5 w-100">
-            <a class="navbar-brand current" href="#!">HikersDelight</a>
-            <ul>
-                <li><a href="boots.html">Boots</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="trolley.html">Trolley</a></li>
-            </ul>
-        </nav>
+       <%@ include file="/includes/navbar.jsp" %>
+        
+        <!-- Modal -->
+        
+        <%@ include file="/includes/login.jsp" %>
+
         <!-- Header-->
         <div class="space"></div>
         <header>
             <div class="container px-4 px-lg-5">
                 <div class="text-center">
                     <h1 class="py-5 display-4 fw-bolder">Boots that will take you to new heights</h1>
-                    <a href="boots.html"><button class="btn btn-primary">View the Boots</button></a>    
+                    <a href="boots.jsp"><button class="btn btn-primary">View the Boots</button></a>    
                 </div>
             </div>
         </header>

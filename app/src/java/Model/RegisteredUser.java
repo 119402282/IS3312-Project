@@ -3,15 +3,16 @@ import java.util.ArrayList;
 
 
 public class RegisteredUser extends User{
-    public String getFullName() {
-        return fullName;
-    }
+    
 
     protected String fullName;
     protected String Eircode;
     protected Trolley trolley;
     protected ArrayList<Trolley> orderHistory;
 
+    public RegisteredUser() {
+        this.type = "registeredUser";
+    }
     @Override
     public String toString() {
         return null;
@@ -21,7 +22,10 @@ public class RegisteredUser extends User{
     public String toJSON() {
         return null;
     }
-
+    
+    public String getFullName() {
+        return fullName;
+    }
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }

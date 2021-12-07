@@ -18,7 +18,7 @@ public class BootIO {
             BufferedReader input = new BufferedReader(new FileReader(file));
             String line = input.readLine();
             while (line != null) {
-                String[] list = line.split(",");
+                String[] list = line.split("\\|");
                 int productCode = Integer.parseInt(list[0]);
                 if (code == productCode) {
                     return new BootFactory().createBoot(list);

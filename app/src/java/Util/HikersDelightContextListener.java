@@ -16,7 +16,7 @@ public class HikersDelightContextListener implements ServletContextListener {
         ServletContext context = event.getServletContext();
         String bootsFile = context.getRealPath("/WEB-INF/boots.txt");
         context.setAttribute("path", bootsFile);
-        context.setAttribute("bootsList", getAllBoots( bootsFile));
+        context.setAttribute("bootsList", getAllBoots((String) context.getAttribute("path")));
         context.setAttribute("Email", context.getInitParameter("Email"));
     }
 

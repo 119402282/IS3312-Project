@@ -1,25 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
-import Model.Administrator;
-import Model.RegisteredUser;
+import Model.Boot;
+import static data.BootIO.getBoot;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
-
 
 /**
  *
- * @author Henry Cullen <119402282%40umail.ucc.ie>
- * 
- * 
+ * @author culle
  */
-public class LoginServlet extends HttpServlet {
+public class ProductServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,48 +34,15 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        RegisteredUser user = new RegisteredUser();
-        user.setPassword("user");
-        user.setEmail("user@gmail.com");
-        Administrator admin = new Administrator();
-        admin.setPassword("admin");
-        admin.setEmail("admin@gmail.com");
-        
-        HttpSession session = request.getSession(true);
-        
-        String email = request.getParameter("email");
-        String pass = request.getParameter("password");
-        
-        System.out.println("");
-        
-        if(email.equals(user.getEmail()) && pass.equals(user.getPassword())){
-            response.setContentType("application/json");
-            try (PrintWriter out = response.getWriter()) {
-                out.println("user");
-            }
-            session.setAttribute("user", user);
-            response.sendRedirect("index.jsp");
-        }
-        
-        
-        if(email.equals(admin.getEmail()) && pass.equals(admin.getPassword())){
-            response.setContentType("application/json");
-            try (PrintWriter out = response.getWriter()) {
-                out.println("admin");
-            }
-            session.setAttribute("user", admin);
-            response.sendRedirect("admin.jsp");
-        
-        } else {
-            response.setContentType("application/json");
-            try (PrintWriter out = response.getWriter()) {
-                out.println("fail");
-            }
-            //response.sendRedirect("index.jsp");
-            session.setAttribute("user", null);
-        }
-        
+        /* TODO output your page here. You may use following sample code. */
+        System.out.println("runnnnnnnning");
+        ServletContext sc = getServletContext();
+        int code = Integer.parseInt( request.getParameter("code"));
+        Boot boot = getBoot(code, (String) sc.getAttribute("path"));
+
+        request.setAttribute("boot", boot);
+        System.out.println(boot.toJSON());
+        sc.getRequestDispatcher("/product.jsp").forward( request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

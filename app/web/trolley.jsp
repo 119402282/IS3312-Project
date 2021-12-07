@@ -1,3 +1,8 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,6 +13,8 @@
         <title>Trolley - HikersDelight</title>
         <link href="css/style.css" rel="stylesheet" />
         <script src="js/index.js" defer type="text/javascript"></script>
+        
+        <script src="js/modal.js" defer type="text/javascript"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -17,14 +24,10 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav id="nav" class="container-fluid px-3 px-lg-5 w-100">
-            <a class="navbar-brand" href="index.html">HikersDelight</a>
-            <ul>
-                <li><a href="boots.html">Boots</a></li>
-                <li><a href="">Login</a></li>
-                <li><a class="current" href="">Trolley</a></li>
-            </ul>
-        </nav>
+        <%@ include file="/includes/navbar.jsp" %>
+        <!-- Modal -->
+        
+        <%@ include file="/includes/login.jsp" %>
         <!-- Header-->
         <div class="space"></div>
         <div class="container w-75">
@@ -42,7 +45,7 @@
                                 <h4 class="pb-1">Off-Piste Extreme Mens Snowboots</h4>
                                 <h6>MOUNTAIN WAREHOUSE</h6>
                                 <p>Size: 42</p>
-                                <p class="pb-1">Price per unit: €59.99</p>
+                                <p class="pb-1">Price per unit: â¬59.99</p>
                             </div>
                             <div>
                                 <label for="quantity">Quantity:</label>
@@ -59,14 +62,14 @@
                             <div>
                                 <a href="" type="button" style="color: var(--green);" class="small text-uppercase mr-3">Remove item </a>
                             </div>
-                            <p class="mb-0"><span><strong id="summary">€59.99</strong></span></p class="mb-0">
+                            <p class="mb-0"><span><strong id="summary">â¬59.99</strong></span></p class="mb-0">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div id="checkout" class="w-75 mx-auto">
-            <a href="index.html" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>
+            <a href="index.jsp" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>
         </div>
         <!-- Footer-->
         <footer id="footer">
