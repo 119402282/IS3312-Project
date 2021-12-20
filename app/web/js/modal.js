@@ -1,15 +1,18 @@
 let btn = document.getElementById('btn-login');
 let btnCancel = document.getElementById('cancel');
 let modal = document.getElementById('modal');
+let email = document.getElementById('email');
+let pass = document.getElementById('password');
+const overlay = document.getElementById('loginOver');
 
-btn.onclick = () => {
+const toggleLoginModal = () => {
     modal.classList.toggle('modalGrid');
-    const current = document.querySelector('nav a[href="javascript:void"]');
-    current.classList.toggle('current');
-};
+    overlay.classList.toggle('show-over');
+    btn.classList.toggle('current');
+    email.value = "";
+    pass.value="";
+    
+}
 
-btnCancel.onclick= () => {
-    modal.classList.toggle('modalGrid');
-    const current = document.querySelector('nav a[href="javascript:void"]');
-    current.classList.toggle('current');
-};
+btn.onclick =()=> toggleLoginModal();
+btnCancel.onclick =()=> toggleLoginModal();

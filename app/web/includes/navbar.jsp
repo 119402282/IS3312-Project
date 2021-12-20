@@ -25,23 +25,22 @@
             User currUser = (User) sesh.getAttribute("user");
             if(Objects.isNull(currUser)){
         %>
-            <li><a class="" href="javascript:void" id="btn-login">Login</a></li>
+            <li><a class="" href="#" id="btn-login">Login</a></li>
+            <li><a class="" href="#" onclick="alert('You must login to access your trolley.')">Trolley</a></li>
         <%
-            } else if (currUser.getType().equals("admin")){
+            } else if (currUser.getType().equals("admin") || currUser.getType().equals("registeredUser")){
         %>
-            <li><a class="" href="javascript:void" >Admin</a></li>
-            <%
-            } else if (currUser.getType().equals("registeredUser")){
-        %>
-            <li><a class="" href="javascript:void" >Logged In</a></li>
+            <li><a class="" href="./end" >Logout</a></li>
+            <li><a class="" href="trolley.jsp">Trolley</a></li>
         <%
             } else {
         %>
-             <li><a class="" href="javascript:void" id="btn-login">Login</a></li>
+             <li><a class="" href="#" id="btn-login">Login</a></li>
+             <li><a class="" href="#" onclick="alert('You must login to access your trolley.')">Trolley</a></li>
         <%
             }
         %>
-        <li><a class="" href="trolley.jsp">Trolley</a></li>
+             
     </ul>
 </nav>
 

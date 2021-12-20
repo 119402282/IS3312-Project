@@ -3,6 +3,7 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page pageEncoding="UTF-8" %>
+<div class="overflow-hidden w-100 h-100 position-fixed overlay" id="loginOver"></div>
 <div class="container w-50 py-5 h-100 mx-auto"  id="modal" style="background-color: transparent;">
     <form id="login">
         <div class="card shadow-2-strong h-100" style="border-radius: 1rem;">
@@ -19,10 +20,13 @@
                         <input type="password" id="password" name="password" class="form-control form-control-lg"/>
                         <label class="form-label" for="password">Password</label>
                     </div>
-                    <button class="btn btn-primary my-5 btn-lg btn-block w-75" style="background: var(--green); color: var(--light);" type="submit">Login</button>
-                    <button id="cancel" class="btn btn-secondary btn-lg btn-block w-75" style="background: var(--light); color: var(--marine);">Cancel</button>
+                    <button class="btn btn-primary my-5 btn-lg btn-block w-75" value="Submit" style="background: var(--green); color: var(--light);" type="submit">Login</button>
+                    <button id="cancel" type="reset" value="Reset" class="btn btn-secondary btn-lg btn-block w-75" style="background: var(--light); color: var(--marine);">Cancel</button>
                 </div>
             </div>
         </div>
     </form>
+</div>
+<div class="alert alert-warning position-fixed alert-dismissible fade" style="top: 15%;right: 15%; z-index: 10;" role="alert">
+    <div id="toast-output" class="d-inline-block" style="max-width: 50ch"></div>
 </div>

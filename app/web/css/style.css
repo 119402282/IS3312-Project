@@ -18,6 +18,10 @@
 
 }
 
+section[id] p {
+    max-width: 55ch;
+}
+
 .current {
     color: #46af56  !important;
     font-weight: 900 !important;
@@ -27,7 +31,7 @@
 
 /* width: clamp(min, preffered, max); */
 p {
-    max-width: 50ch;
+    max-width: 75ch;
 }
 
 nav {
@@ -45,7 +49,7 @@ nav {
 #nav{
     font-size: 1.25rem !important;
     font-weight: 600;
-    z-index: 10;
+    z-index: 7;
 }
 
 
@@ -330,12 +334,23 @@ p.card-text {
 
 .modalGrid {
     display: grid !important;
-    position: absolute;
-    z-index: 100;
+    position: fixed;
+    z-index: 9;
     background-color: var(--light);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#loginOver.show-over {
+    display: block;
+}
+
+.overlay{
+    display: none;
+    z-index: 8;
+    background-color: #111111aa;
+    height: 100vh;
 }
 
 .griddy{
