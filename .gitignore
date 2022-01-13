@@ -1,13 +1,6 @@
 /app/build/
 /app/dist/
-/app-new/nbproject/private/
-/app-new/build/
-/app-new/dist/
-/reall-new/nbproject/private/
-/reall-new/build/
-/reall-new/dist/
 /app/nbproject/private/
-/WebApplication1/nbproject/private/
-/new-app/nbproject/private/
-/new-app/build/
-/new-app/dist/
+/app/.idea/
+/app/text/
+
