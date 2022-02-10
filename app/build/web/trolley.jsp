@@ -87,9 +87,9 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <a href="" type="button" style="color: var(--green);" class="small text-uppercase mr-3">Remove item </a>
+                                <a href="trolley?remove=<%= lineItem.getBoot().getCode()%>" type="button" style="color: var(--green);" class="small text-uppercase mr-3">Remove item </a>
                             </div>
-                            <p class="mb-0"><span><strong id="summary">€<%= lineItem.getCost()%></strong></span></p class="mb-0">
+                            <p class="mb-0"><span><strong id="summary">€<%= lineItem.getCost()%></strong></span></p>
                         </div>
                     </div>
                 </div>

@@ -39,6 +39,15 @@ public class Trolley {
             this.bundleOfBoots.add(new OrderItems(boot));
         }
     }
+   
+    public void removeBoot(Boot boot) {
+        for(int i = 0; i< this.bundleOfBoots.size(); i++){
+        if(this.bundleOfBoots.get(i).getBoot().getCode() == boot.getCode()){
+                this.bundleOfBoots.remove(i);
+            }
+        }
+    }
+    
     /**
      * @return the totalPrice
      */

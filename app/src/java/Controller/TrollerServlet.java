@@ -36,42 +36,64 @@ public class TrollerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                String addCode = request.getParameter("add");
-                HttpSession session = request.getSession(true);
-                ServletContext application = getServletContext();
-                User currentUser = (User)session.getAttribute("SESSION_USER");
-             
-                String type = "";
-                if(currentUser!=null){
-                    type = currentUser.getType();
-                }
-                if( (!addCode.equals("") && addCode !=null) && type.equals("USER")){
-                    try{
-                        int code = Integer.parseInt(addCode);
-                        ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
-                        BootUtil bootWorker = new BootUtil(bootList);
-                        Boot newBoot = bootWorker.getBootByCode(code);
-                        if(newBoot != null){
-                            System.out.println(currentUser.getTrolley());
-                            currentUser.getTrolley().addBoot(newBoot);
-                        }
-                        response.sendRedirect("./trolley.jsp");
-                    }
-                    catch (NumberFormatException ex){
-                        ex.printStackTrace();
-//            <script defer>
-//                alert("Invalid Product code");
-//            </script>
+        String addCode ="";
 
-// send user the error and redirect them to the product page.
-                    }
-                } else { 
-                    //send user the error that they were not loggedin and redirect to product page
-//            <script defer>
-//                alert("You must be logged in as a user to add to your trolley");
-//            </script>
-                    response.sendRedirect("boots.jsp");
-                } 
+        if(request.getParameter("add") != null){
+            addCode = request.getParameter("add");;
+        }
+        System.out.println(addCode);
+        String remCode = "";
+        if(request.getParameter("remove") != null){
+            remCode = request.getParameter("remove");
+        }
+        System.out.println(remCode);
+        HttpSession session = request.getSession(true);
+        ServletContext application = getServletContext();
+        User currentUser = (User)session.getAttribute("SESSION_USER");
+
+        String type = "";
+        if(currentUser!=null){
+            type = currentUser.getType();
+        }
+        if( (!addCode.isBlank()) && type.equals("USER")){
+            try{
+                int code = Integer.parseInt(addCode);
+                ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
+                BootUtil bootWorker = new BootUtil(bootList);
+                Boot newBoot = bootWorker.getBootByCode(code);
+                if(newBoot != null){
+                    currentUser.getTrolley().addBoot(newBoot);
+                }
+                response.sendRedirect("./trolley.jsp");
+            }
+            catch (NumberFormatException ex){
+                ex.printStackTrace();
+        // send user the error about invalid product code and redirect them to the product page.
+            }
+        } else if((!remCode.isBlank()) && type.equals("USER")){
+            try{
+                int code = Integer.parseInt(remCode);
+                ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
+                BootUtil bootWorker = new BootUtil(bootList);
+                Boot removalBoot = bootWorker.getBootByCode(code);
+                if(removalBoot != null){
+                    currentUser.getTrolley().removeBoot(removalBoot);
+                }
+                response.sendRedirect("./trolley.jsp");
+            }
+            catch (NumberFormatException ex){
+                ex.printStackTrace();
+        // send user the error about invalid product code and redirect them to the product page.
+            }
+        } else { 
+            //send user the error that they were not loggedin and redirect to product page
+            response.sendRedirect("boots.jsp");
+        } 
+
+                
+        //code needed to tell user their checkout was successful and add their items ti the database
+        //move to order History array and create a method on the user that listens to chanegs in the array and writes them to the database
+        //write the changes of trolley to the database too.
                 
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
