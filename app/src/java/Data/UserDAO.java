@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Model.Trolley;
 import Model.User;
 
 public class UserDAO {
@@ -15,12 +16,14 @@ public class UserDAO {
             user.setPassword("user");
             user.setType("USER");
             user.setEmail("user@gmail.com");
+            user.setTrolley(new Trolley());
             return user;
         }else if(email.equals("admin@gmail.com")){
             User admin = new User();
             admin.setType("ADMIN");
             admin.setPassword("admin");
             admin.setEmail("admin@gmail.com");
+            admin.setTrolley(new Trolley());
             return admin;
         }
 

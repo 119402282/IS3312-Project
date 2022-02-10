@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\culle\Downloads\Bills\app\databases
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Feb 10 01:37:47 GMT 2022: Shutting down Derby engine
+----------------------------------------------------------------
+Thu Feb 10 01:37:47 GMT 2022:
+Shutting down instance a816c00e-017e-e0ea-b35e-ffffd1f9d8fa on database directory C:\Users\culle\Downloads\Bills\app\databases\BootsDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a 
+----------------------------------------------------------------

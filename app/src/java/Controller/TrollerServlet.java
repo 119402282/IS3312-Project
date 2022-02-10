@@ -10,6 +10,7 @@ import Util.BootUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,13 +35,17 @@ public class TrollerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
                 String addCode = request.getParameter("add");
                 HttpSession session = request.getSession(true);
                 ServletContext application = getServletContext();
                 User currentUser = (User)session.getAttribute("SESSION_USER");
-                
-                if( (!addCode.equals("") && addCode !=null) && currentUser.getType().equals("USER")){
+             
+                String type = "";
+                if(currentUser!=null){
+                    type = currentUser.getType();
+                }
+                if( (!addCode.equals("") && addCode !=null) && type.equals("USER")){
                     try{
                         int code = Integer.parseInt(addCode);
                         ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
@@ -50,12 +55,14 @@ public class TrollerServlet extends HttpServlet {
                             System.out.println(currentUser.getTrolley());
                             currentUser.getTrolley().addBoot(newBoot);
                         }
+                        response.sendRedirect("./trolley.jsp");
                     }
                     catch (NumberFormatException ex){
                         ex.printStackTrace();
 //            <script defer>
 //                alert("Invalid Product code");
 //            </script>
+
 // send user the error and redirect them to the product page.
                     }
                 } else { 
@@ -63,7 +70,10 @@ public class TrollerServlet extends HttpServlet {
 //            <script defer>
 //                alert("You must be logged in as a user to add to your trolley");
 //            </script>
+                    response.sendRedirect("boots.jsp");
                 } 
+                
+        response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             
         }

@@ -44,7 +44,17 @@
             <% 
                 User currentUser = (User)session.getAttribute("SESSION_USER");
                 Trolley cart = currentUser.getTrolley();
-                for(OrderItems lineItem : cart.getBundleOfBoots()){
+                ArrayList<OrderItems> bootsInCart = cart.getBundleOfBoots();
+                if(bootsInCart.size() == 0){
+            %>
+            <div class="container" style="display: grid; place-items: center; width: 100%; height: 50vh; justify-content: center;">
+                <div>
+                    <h2>Your trolley is empty, want to look for some <a href="boots.jsp" style="color: var(--green);">Boots</a>!</h2>
+                </div>
+            </div>
+            <%
+                } else {
+                    for(OrderItems lineItem : cart.getBundleOfBoots()){
             %>
             <div class="row mb-4 line-item">
                 <div class="col-md-5 col-lg-3 col-xl-3">
@@ -60,7 +70,7 @@
                                 <p class="pb-1">Price per unit: <%= lineItem.getBoot().getPrice()%></p>
                             </div>
                             <div>
-                                <label for="quantity">Quantity:</label>
+                                <label for="quantity">Quantity: <%= lineItem.getQuantity()%></label>
                                 <select class="form-control" id="quantity">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -86,12 +96,15 @@
             </div>
 
             <% 
-                }
+                    }
             %>
         </div>
         <div id="checkout" class="w-75 mx-auto">
             <a href="index.jsp" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>
         </div>
+        <%
+            }
+        %>
         <!-- Footer-->
         <footer id="footer">
             <p class="mx-auto text-center">info@hikersdelight.com</p>

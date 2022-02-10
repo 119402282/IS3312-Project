@@ -10,6 +10,11 @@ public class Trolley {
     /**
      * @return the bundleOfBoots
      */
+    
+    public Trolley(){
+        this.bundleOfBoots = new  ArrayList<>();
+    }
+    
     public ArrayList<OrderItems> getBundleOfBoots() {
         return bundleOfBoots;
     }
@@ -22,13 +27,15 @@ public class Trolley {
     }
     
     public void addBoot(Boot boot) {
+        boolean foundBoot = false;
         for(OrderItems eachItem : this.bundleOfBoots){
             if(eachItem.getBoot().getCode() == boot.getCode()){
                 eachItem.upQuantity();
                 eachItem.updateCost();
+                foundBoot = true;
             }
         }
-        if(boot != null){
+        if(boot != null && !foundBoot){
             this.bundleOfBoots.add(new OrderItems(boot));
         }
     }
