@@ -4,3 +4,14 @@
 /app/.idea/
 /app/text/
 
+/mavenproject1/target/
+/mavenproject2/target/
+/app - Copy/build/
+/app - Copy/dist/
+/app - Copy/nbproject/private/
+/appv2/build/
+/appv2/dist/
+/appv2/nbproject/private/
+/app-part2/nbproject/private/
+/app-part2/dist/
+/app-part2/build/

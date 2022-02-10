@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.Boot;
-import static data.BootIO.getBoot;
+import static Data.BootIO.getBoot;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -35,13 +35,11 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         /* TODO output your page here. You may use following sample code. */
-        System.out.println("runnnnnnnning");
         ServletContext sc = getServletContext();
         int code = Integer.parseInt( request.getParameter("code"));
         Boot boot = getBoot(code, (String) sc.getAttribute("path"));
 
         request.setAttribute("boot", boot);
-        System.out.println(boot.toJSON());
         sc.getRequestDispatcher("/product.jsp").forward( request, response);
     }
 

@@ -1,9 +1,8 @@
 package Controller;
 
-import Model.Administrator;
-import Model.RegisteredUser;
 import static Util.LoginUtil.approveLogin;
-import static Util.LoginUtil.loginType;
+import static Data.UserDAO.getUserByEmail;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,36 +34,30 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        RegisteredUser user = new RegisteredUser();
-        user.setPassword("user");
-        user.setEmail("user@gmail.com");
-        Administrator admin = new Administrator();
-        admin.setPassword("admin");
-        admin.setEmail("admin@gmail.com");
+       
         
         HttpSession session = request.getSession(true);
         
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
+        User user = getUserByEmail(email);
         
-        String resultType;
+        String resultType= null;
+        boolean correct = false;
         if(approveLogin(email, pass, user)){
-            session.setAttribute("user", user);
-            resultType = loginType(user);
-        } else if(approveLogin(email, pass, admin)){
-            session.setAttribute("user", admin);
-            resultType = loginType(admin);
+            session.setAttribute("SESSION_USER", user);
+            resultType = user.getType();
+            correct = true;
         } else {
-            session.setAttribute("user", null);
-            resultType = loginType(null);
-            email = null;
+            session.setAttribute("SESSION_USER", null);
         }
-        email = email==null? null : "\""+email +"\"";
+        
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) {
                 out.println("{\n"
-                        + "\"email\": " + email + ",\n"
-                        + "\"type\": " + resultType + "\n"
+                        + "\"correct\": " + correct + ",\n"
+                        + "\"email\": \"" + email + "\",\n"
+                        + "\"type\": \"" + resultType + "\"\n"
                         + "}");
         }
         

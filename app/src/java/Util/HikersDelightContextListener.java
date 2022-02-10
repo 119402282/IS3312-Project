@@ -1,9 +1,9 @@
 package Util;
 
 import Model.Boot;
+import static Data.BootIO.getAllBoots;
 import java.util.ArrayList;
 
-import static data.BootIO.getAllBoots;
 import javax.servlet.ServletContextListener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContext;
@@ -18,7 +18,7 @@ public class HikersDelightContextListener implements ServletContextListener {
         context.setAttribute("path", bootsFile);
         context.setAttribute("bootsList", getAllBoots((String) context.getAttribute("path")));
         context.setAttribute("Email", context.getInitParameter("Email"));
-    }
+    }//
 
     @Override
     public void contextDestroyed(ServletContextEvent event) {

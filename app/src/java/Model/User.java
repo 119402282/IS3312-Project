@@ -1,14 +1,17 @@
 package Model;
 
-public abstract class User {
+import java.util.ArrayList;
 
-    protected String email;
-    protected String password;
-    protected String type;
+public class User {
+
+    private String email;
+    private String password;
+    private String type;
+    private String fullName;        
+    private String Eircode;
+    private Trolley trolley;
+    private ArrayList<Trolley> orderHistory;
     
-    public abstract String toString();
-    public abstract String toJSON();
-
     public String getEmail() {
         return email;
     }
@@ -31,7 +34,42 @@ public abstract class User {
             return type;
         }
     }
+    
     public void setType(String type) {
         this.type = type;
     }
+    
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEircode() {
+        return Eircode;
+    }
+
+    public void setEircode(String eircode) {
+        Eircode = eircode;
+    }
+
+    public Trolley getTrolley() {
+        return trolley;
+    }
+
+    public void setTrolley(Trolley trolley) {
+        this.trolley = trolley;
+    }
+
+    public ArrayList<Trolley> getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(ArrayList<Trolley> orderHistory) {
+        this.orderHistory = orderHistory;
+    }
+    
+
 }

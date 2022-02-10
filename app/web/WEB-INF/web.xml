@@ -11,6 +11,10 @@
         <servlet-name>EndSessionServlet</servlet-name>
         <servlet-class>Controller.EndSessionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TrollerServlet</servlet-name>
+        <servlet-class>Controller.TrollerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -36,6 +40,10 @@
     <servlet-mapping>
         <servlet-name>EndSessionServlet</servlet-name>
         <url-pattern>/end</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrollerServlet</servlet-name>
+        <url-pattern>/trolley</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

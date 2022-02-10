@@ -52,7 +52,7 @@
                         <p>Size: ${boot.size}</p>
                         <p>Type: ${boot.type}</p>
                         <p class="card-text">Color: ${boot.color}</p>
-                        <span><a href="./trolley.jsp?add=${boot.code}" class="btn btn-primary">Buy Product</a></span>
+                        <span><a href="./trolley?add=${boot.code}" class="btn btn-primary">Buy Product</a></span>
                     </div>
                 </div>
                 </c:forEach>

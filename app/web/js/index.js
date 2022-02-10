@@ -3,15 +3,14 @@ let urlPattern = 'loginServlet';
 let toast = document.getElementById('toast-output');
 let alertA = document.getElementsByClassName('alert')[0];
 const app = (input) => {
-    let {email, type} = input;
-    if(type){
-        type = type === 'registeredUser'? 'user': 'admin';
-        let output = `Hi ${email}!\nYou are currently logged in as an ${type}. \nWe are redirecting you to ${type === 'user'? 'the product page.': 'your admin homepage.'}`;
+    let {correct, email, type} = input;
+    if(correct){
+        let output = `Hi ${type === 'USER'? name : email}!\nYou are currently logged in as an ${type.toLowerCase()}. \nWe are redirecting you to ${type === 'USER'? 'the product page.': 'your admin homepage.'}`;
         toast.innerHTML = output;
         alertA.classList.toggle('show');
         setTimeout(function() {
             alertA.classList.toggle('show');
-            window.location.replace(type=="user"? "./boots.jsp":"./admin.jsp");
+            window.location.replace(type==="USER"? "./boots.jsp": type ==="ADMIN" ? "./admin.jsp": "./error-page.jsp");
         }, 2300);
     } else {
         let output = 'Incorrect login details.';

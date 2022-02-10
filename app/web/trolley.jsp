@@ -1,3 +1,8 @@
+<%@page import="Model.OrderItems"%>
+<%@page import="Model.Trolley"%>
+<%@page import="Util.BootUtil"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Boot"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
@@ -32,21 +37,27 @@
         <!-- Header-->
         <div class="space"></div>
         <div class="container w-75">
+            
             <div class="row">
                 <h1 class="page-title">Trolley</h1>
             </div>
+            <% 
+                User currentUser = (User)session.getAttribute("SESSION_USER");
+                Trolley cart = currentUser.getTrolley();
+                for(OrderItems lineItem : cart.getBundleOfBoots()){
+            %>
             <div class="row mb-4 line-item">
                 <div class="col-md-5 col-lg-3 col-xl-3">
-                    <img class="product-img img-fluid w-100" src="assets/product-images/1.jpg" alt="Image of boot">    
+                    <img class="product-img img-fluid w-100" src="assets/product-images/<%= lineItem.getBoot().getCode()%>.jpg" alt="Image of boot">    
                 </div>
                 <div class="col-md-7 col-lg-9 col-xl-9">
                     <div>
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="pb-1">Off-Piste Extreme Mens Snowboots</h4>
-                                <h6>MOUNTAIN WAREHOUSE</h6>
-                                <p>Size: 42</p>
-                                <p class="pb-1">Price per unit: €59.99</p>
+                                <h4 class="pb-1"><%= lineItem.getBoot().getName()%></h4>
+                                <h6><%= lineItem.getBoot().getBrand()%></h6>
+                                <p>Size: <%= lineItem.getBoot().getSize()%></p>
+                                <p class="pb-1">Price per unit: <%= lineItem.getBoot().getPrice()%></p>
                             </div>
                             <div>
                                 <label for="quantity">Quantity:</label>
@@ -68,11 +79,15 @@
                             <div>
                                 <a href="" type="button" style="color: var(--green);" class="small text-uppercase mr-3">Remove item </a>
                             </div>
-                            <p class="mb-0"><span><strong id="summary">€59.99</strong></span></p class="mb-0">
+                            <p class="mb-0"><span><strong id="summary">€<%= lineItem.getCost()%></strong></span></p class="mb-0">
                         </div>
                     </div>
                 </div>
             </div>
+
+            <% 
+                }
+            %>
         </div>
         <div id="checkout" class="w-75 mx-auto">
             <a href="index.jsp" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>

@@ -1,4 +1,4 @@
-package data;
+package Data;
 
 import Model.Boot;
 import Model.BootFactory;

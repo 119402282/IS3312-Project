@@ -48,7 +48,7 @@
                         <p>Color: ${boot.color}</p>
                         <h6>${fn:toUpperCase(boot.brand)}</h6>
                         <p class="pb-1">Description: ${boot.description}</p>
-                        <span><a href="trolley.jsp?add=${boot.code}" class="btn btn-primary">Buy Product for <fmt:formatNumber value="${boot.price}" currencySymbol="€" type="currency"/></a></span>
+                        <span><a href="trolley?add=${boot.code}" class="btn btn-primary">Buy Product for <fmt:formatNumber value="${boot.price}" currencySymbol="€" type="currency"/></a></span>
                     </div>
                 </div>
             </div>

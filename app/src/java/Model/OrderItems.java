@@ -5,6 +5,12 @@ public class OrderItems {
     private int quantity;
     private double cost;
 
+    public OrderItems(Boot boot){
+        this.boot = boot;
+        this.quantity = 1;
+        this.cost = this.quantity * boot.price;
+    }
+    
     public Boot getBoot() {
         return boot;
     }
@@ -20,9 +26,22 @@ public class OrderItems {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+    
+    public void upQuantity() {
+        this.quantity += 1;
+    }
+    
+    public void downQuantity() {
+        this.quantity -=1;
+    }
+    
     public double getCost() {
+        updateCost();
         return cost;
+    }
+
+    public void updateCost() {
+        this.cost = this.boot.price*this.quantity;
     }
 
 }

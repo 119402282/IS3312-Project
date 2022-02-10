@@ -6,6 +6,7 @@
 package Util;
 
 import Model.User;
+import static java.util.Objects.isNull;
 
 /**
  *
@@ -14,14 +15,9 @@ import Model.User;
 public class LoginUtil {
     
     public static boolean approveLogin(String email, String password, User user){
-        return email.equals(user.getEmail()) && password.equals(user.getPassword());
-    }
-    
-    public static String loginType(User user){
-        if(user == null){
-            return null;
-        } else {
-            return "\""+user.getType() + "\"";
+        if(isNull(user)){
+            return false;
         }
+        return email.equals(user.getEmail()) && password.equals(user.getPassword());
     }
 }

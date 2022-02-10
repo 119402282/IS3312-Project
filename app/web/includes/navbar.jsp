@@ -1,5 +1,4 @@
 <%-- any content can be specified here e.g.: --%>
-<%@page import="Model.Administrator"%>
 <%@page import="java.util.Objects"%>
 <%@page import="Model.User"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -22,13 +21,13 @@
         <li><a class="" href="boots.jsp">Boots</a></li>
         <%
             HttpSession sesh = request.getSession(true);
-            User currUser = (User) sesh.getAttribute("user");
+            User currUser = (User) sesh.getAttribute("SESSION_USER");
             if(Objects.isNull(currUser)){
         %>
             <li><a class="" href="#" id="btn-login">Login</a></li>
             <li><a class="" href="#" onclick="alert('You must login to access your trolley.')">Trolley</a></li>
         <%
-            } else if (currUser.getType().equals("admin") || currUser.getType().equals("registeredUser")){
+            } else if (currUser.getType().equals("ADMIN") || currUser.getType().equals("USER")){
         %>
             <li><a class="" href="./end" >Logout</a></li>
             <li><a class="" href="trolley.jsp">Trolley</a></li>
