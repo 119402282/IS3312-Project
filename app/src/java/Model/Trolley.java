@@ -73,4 +73,14 @@ public class Trolley {
     public void setDeliveryCost(double deliveryCost) {
         this.deliveryCost = deliveryCost;
     }
+
+    public void setBootQuantity(Boot boot, int quant) {
+        for(int i = 0; i< this.bundleOfBoots.size(); i++){
+            if(this.bundleOfBoots.get(i).getBoot().getCode() == boot.getCode()){
+                this.bundleOfBoots.get(i).setQuantity(quant);
+                this.bundleOfBoots.get(i).updateCost();
+                System.out.println(boot.getName() + quant);
+            }
+        }
+    }
 }

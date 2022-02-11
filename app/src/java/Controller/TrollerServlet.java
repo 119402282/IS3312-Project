@@ -37,11 +37,15 @@ public class TrollerServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String addCode ="";
-
         if(request.getParameter("add") != null){
-            addCode = request.getParameter("add");;
+            addCode = request.getParameter("add");
         }
-        System.out.println(addCode);
+        String changeCode ="";
+        String quantity ="";
+        if(request.getParameter("change") != null && request.getParameter("quantity")!= null){
+            changeCode = request.getParameter("change");
+            quantity = request.getParameter("quantity");
+        }
         String remCode = "";
         if(request.getParameter("remove") != null){
             remCode = request.getParameter("remove");
@@ -84,6 +88,24 @@ public class TrollerServlet extends HttpServlet {
             catch (NumberFormatException ex){
                 ex.printStackTrace();
         // send user the error about invalid product code and redirect them to the product page.
+            }
+         } else if((!changeCode.isBlank() && !quantity.isBlank()) && type.equals("USER")){
+            try{
+                int code = Integer.parseInt(changeCode);
+                int quant = Integer.parseInt(quantity);
+                System.out.println(code);
+                ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
+                BootUtil bootWorker = new BootUtil(bootList);
+                Boot bootOfChange = bootWorker.getBootByCode(code);
+                System.out.println(bootOfChange.getName());
+                if(bootOfChange != null && quant>0){
+                    currentUser.getTrolley().setBootQuantity(bootOfChange, quant);
+                }
+                response.sendRedirect("./trolley.jsp");
+            }
+            catch (NumberFormatException ex){
+                ex.printStackTrace();
+        // send user the error about invalid product code / quantity and redirect them to the product page.
             }
         } else { 
             //send user the error that they were not loggedin and redirect to product page
