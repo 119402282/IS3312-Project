@@ -3,9 +3,9 @@ let urlPattern = 'loginServlet';
 let toast = document.getElementById('toast-output');
 let alertA = document.getElementsByClassName('alert')[0];
 const app = (input) => {
-    let {correct, email, type} = input;
+    let {correct, email, name, type} = input;
     if(correct){
-        let output = `Hi ${type === 'USER'? name : email}!\nYou are currently logged in as an ${type.toLowerCase()}. \nWe are redirecting you to ${type === 'USER'? 'the product page.': 'your admin homepage.'}`;
+        let output = `Hi ${name==="null"? email : name}!\nYou are currently logged in as an ${type.toLowerCase()}. \nWe are redirecting you to ${type === 'USER'? 'the product page.': 'your admin homepage.'}`;
         toast.innerHTML = output;
         alertA.classList.toggle('show');
         setTimeout(function() {

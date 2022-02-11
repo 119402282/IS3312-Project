@@ -43,10 +43,13 @@ public class LoginServlet extends HttpServlet {
         User user = getUserByEmail(email);
         
         String resultType= null;
+        String name = null;
         boolean correct = false;
         if(approveLogin(email, pass, user)){
             session.setAttribute("SESSION_USER", user);
+            User testBind = (User)session.getAttribute("SESSION_USER");
             resultType = user.getType();
+            name = user.getFullName();
             correct = true;
         } else {
             session.setAttribute("SESSION_USER", null);
@@ -57,7 +60,8 @@ public class LoginServlet extends HttpServlet {
                 out.println("{\n"
                         + "\"correct\": " + correct + ",\n"
                         + "\"email\": \"" + email + "\",\n"
-                        + "\"type\": \"" + resultType + "\"\n"
+                        + "\"type\": \"" + resultType + "\",\n"
+                        + "\"name\": \"" + name + "\"\n"
                         + "}");
         }
         
