@@ -72,7 +72,8 @@ public class TrollerServlet extends HttpServlet {
             }
             catch (NumberFormatException ex){
                 ex.printStackTrace();
-        // send user the error about invalid product code and redirect them to the product page.
+                request.setAttribute("message", new String[]{"invalid","The code reffernced is invalid."});
+                request.getRequestDispatcher("boots.jsp").forward(request, response);
             }
         } else if((!remCode.isBlank()) && type.equals("USER")){
             try{
@@ -87,7 +88,8 @@ public class TrollerServlet extends HttpServlet {
             }
             catch (NumberFormatException ex){
                 ex.printStackTrace();
-        // send user the error about invalid product code and redirect them to the product page.
+                request.setAttribute("message", new String[]{"invalid","The code reffernced is invalid."});
+                request.getRequestDispatcher("boots.jsp").forward(request, response);
             }
          } else if((!changeCode.isBlank() && !quantity.isBlank()) && type.equals("USER")){
             try{
@@ -105,24 +107,24 @@ public class TrollerServlet extends HttpServlet {
             }
             catch (NumberFormatException ex){
                 ex.printStackTrace();
-        // send user the error about invalid product code / quantity and redirect them to the product page.
+                request.setAttribute("message", new String[]{"invalid","The code or quantity refferenced is invalid."});
+                request.getRequestDispatcher("boots.jsp").forward(request, response);
+
             }
         } else { 
-            //send user the error that they were not loggedin and redirect to product page
-            response.sendRedirect("boots.jsp");
+
+            request.setAttribute("message", new String[]{"invalid","You must be logged in as a user to put items in your trolley."});
+            request.getRequestDispatcher("boots.jsp").forward(request, response);
         } 
 
                 
-        //code needed to tell user their checkout was successful and add their items ti the database
+        //code needed to tell user their checkout was successful and add their items ti the databas
+//                request.setAttribute("message", new String[]{"success", "Your order has been successful"});e
         //move to order History array and create a method on the user that listens to chanegs in the array and writes them to the database
         //write the changes of trolley to the database too.
                 
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            
-        }
+        
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

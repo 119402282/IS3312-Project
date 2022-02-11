@@ -36,6 +36,7 @@
         <!-- Modal -->
         
        <%@ include file="/includes/login.jsp" %>
+       <%@ include file="/includes/trolley_response.jsp" %>
         <!-- Header-->
         <div class="space"></div>
         <div class="container">

@@ -1,7 +1,7 @@
 let id = 'login';
 let urlPattern = 'loginServlet';
 let toast = document.getElementById('toast-output');
-let alertA = document.getElementsByClassName('alert')[0];
+let alertA = document.getElementsByClassName('alert')[1];
 const app = (input) => {
     let {correct, email, name, type} = input;
     if(correct){
