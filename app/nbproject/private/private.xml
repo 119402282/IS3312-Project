@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/login.jsp</file>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/web/js/index.js</file>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/src/java/Controller/TrollerServlet.java</file>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/web/boots.jsp</file>
+            <file>file:/C:/Users/culle/Downloads/Bills/app/src/java/Controller/CheckoutServlet.java</file>
             <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/navbar.jsp</file>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/web/product.jsp</file>
-            <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/trolley_response.jsp</file>
+            <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/order_history.jsp</file>
+            <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/products_table.jsp</file>
             <file>file:/C:/Users/culle/Downloads/Bills/app/web/index.jsp</file>
+            <file>file:/C:/Users/culle/Downloads/Bills/app/web/includes/trolley_response.jsp</file>
         </group>
     </open-files>
 </project-private>

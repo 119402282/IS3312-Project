@@ -12,6 +12,11 @@ public class User {
     private Trolley trolley;
     private ArrayList<Trolley> orderHistory;
     
+    public User(){
+    this.orderHistory = new  ArrayList<Trolley>();
+    
+    }
+    
     public String getEmail() {
         return email;
     }

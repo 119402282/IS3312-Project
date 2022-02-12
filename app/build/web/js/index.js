@@ -11,14 +11,14 @@ const app = (input) => {
         setTimeout(function() {
             alertA.classList.toggle('show');
             window.location.replace(type==="USER"? "./boots.jsp": type ==="ADMIN" ? "./admin.jsp": "./error-page.jsp");
-        }, 2300);
+        }, 1500);
     } else {
         let output = 'Incorrect login details.';
         toast.innerHTML = output;
         alertA.classList.toggle('show');
         setTimeout(function() {
             alertA.classList.toggle('show');
-        }, 3000);
+        }, 2300);
     }
 }
 

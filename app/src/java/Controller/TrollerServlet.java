@@ -50,7 +50,6 @@ public class TrollerServlet extends HttpServlet {
         if(request.getParameter("remove") != null){
             remCode = request.getParameter("remove");
         }
-        System.out.println(remCode);
         HttpSession session = request.getSession(true);
         ServletContext application = getServletContext();
         User currentUser = (User)session.getAttribute("SESSION_USER");
@@ -95,11 +94,10 @@ public class TrollerServlet extends HttpServlet {
             try{
                 int code = Integer.parseInt(changeCode);
                 int quant = Integer.parseInt(quantity);
-                System.out.println(code);
                 ArrayList<Boot> bootList = (ArrayList<Boot>)application.getAttribute("bootsList");
                 BootUtil bootWorker = new BootUtil(bootList);
                 Boot bootOfChange = bootWorker.getBootByCode(code);
-                System.out.println(bootOfChange.getName());
+                
                 if(bootOfChange != null && quant>0){
                     currentUser.getTrolley().setBootQuantity(bootOfChange, quant);
                 }

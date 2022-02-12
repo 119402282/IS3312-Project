@@ -6,13 +6,11 @@
 package Controller;
 
 import Model.Boot;
-import static Data.BootIO.getBoot;
+import Util.BootUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +35,9 @@ public class ProductServlet extends HttpServlet {
         /* TODO output your page here. You may use following sample code. */
         ServletContext sc = getServletContext();
         int code = Integer.parseInt( request.getParameter("code"));
-        Boot boot = getBoot(code, (String) sc.getAttribute("path"));
+        ArrayList bootList = (ArrayList<Boot>)sc.getAttribute("bootsList");
+        BootUtil bootWorker = new BootUtil(bootList);
+        Boot boot = bootWorker.getBootByCode(code);
 
         request.setAttribute("boot", boot);
         sc.getRequestDispatcher("/product.jsp").forward( request, response);

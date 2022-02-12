@@ -12,7 +12,7 @@ public class Trolley {
      */
     
     public Trolley(){
-        this.bundleOfBoots = new  ArrayList<>();
+        this.bundleOfBoots = new  ArrayList<OrderItems>();
     }
     
     public ArrayList<OrderItems> getBundleOfBoots() {
@@ -79,8 +79,16 @@ public class Trolley {
             if(this.bundleOfBoots.get(i).getBoot().getCode() == boot.getCode()){
                 this.bundleOfBoots.get(i).setQuantity(quant);
                 this.bundleOfBoots.get(i).updateCost();
-                System.out.println(boot.getName() + quant);
             }
         }
+    }
+    
+    @Override
+    public String toString() {
+        return "Trolley{" +
+                "bundleOfBoots=" + bundleOfBoots.toString() +
+                ", totalPrice=" + getTotalPrice() +
+                ", deliveryCost=" + deliveryCost +
+                '}';
     }
 }

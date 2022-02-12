@@ -1,4 +1,3 @@
-drop table BOOTS;
 create table BOOTS
 (
     CODE        INTEGER       not null
@@ -8,7 +7,7 @@ create table BOOTS
     DESCRIPTION VARCHAR(1000) not null,
     SIZE        INTEGER       not null,
     COLOR       VARCHAR(15)   not null,
-    PRICE       NUMERIC(7, 2) not null,
+    PRICE       NUMERIC(6, 2) not null,
     BRAND       VARCHAR(30)   not null
 );
 

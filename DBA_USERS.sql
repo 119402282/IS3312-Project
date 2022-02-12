@@ -1,4 +1,3 @@
-drop table USERS;
 create table USERS
 (
     EMAIL    VARCHAR(30) not null

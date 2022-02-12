@@ -1,0 +1,25 @@
+
+//Big concern use BootStrapLogin as foil when making
+add database
+add registration
+add img upload functionality to directory and default img for not found
+on product delete we should try delet image too.
+add crud for products
+add crud for users
+
+//No a pressing concern
+persist checkout to orderhistory
+persist trolley on servlet load to db
+load order history and currently in cart on login
+add register new user option
+
+add sql rewriter
+//sql rewriter must also consider orders being deleted when a boot /customer is.
+//perhaps we shouldnt delete it when they are deleted... security policy. just leave it null?
+
+add filter buttons for category
+add search for products
+add search depending on last product bought
+add search for products of that season "winter".
+
+foreign language support

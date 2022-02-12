@@ -44,4 +44,12 @@ public class OrderItems {
         this.cost = this.boot.price*this.quantity;
     }
 
+    @Override
+    public String toString() {
+        return "OrderItems{" +
+                "boot=" + boot.getName() +
+                ", quantity=" + getQuantity() +
+                ", cost=" + getCost() +
+                '}';
+    }
 }

@@ -37,6 +37,8 @@
         <!-- Modal -->
         
         <%@ include file="/includes/login.jsp" %>
+        
+        <%@ include file="/includes/order_history.jsp" %>
         <!-- Header-->
         <div class="space"></div>
         <div class="container w-75">
@@ -132,7 +134,7 @@
             </div>
         </div>
         <div id="checkout" class="w-75 mx-auto">
-            <a href="index.jsp" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>
+            <a href="./Checkout" class="btn btn-primary d-block w-50 mx-auto" style="background-color: var(--green);">Checkout</a>
         </div>
         <%
             }
