@@ -4,6 +4,11 @@
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
+        <servlet-name>DBInitialiserServlet</servlet-name>
+        <servlet-class>Util.DBInitialiserServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controller.LoginServlet</servlet-class>
     </servlet>
@@ -19,6 +24,10 @@
         <servlet-name>Checkout</servlet-name>
         <servlet-class>Controller.CheckoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>Controller.AdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
@@ -31,9 +40,6 @@
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/product</url-pattern>
     </servlet-mapping>
-    <listener>
-        <listener-class>Util.HikersDelightContextListener</listener-class>
-    </listener>
     <context-param>
         <param-name>Email</param-name>
         <param-value>info@hikersdelight.com</param-value>
@@ -53,9 +59,18 @@
         <servlet-name>Checkout</servlet-name>
         <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DBInitialiserServlet</servlet-name>
+        <url-pattern>/DBInitialiserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <load-on-startup>1</load-on-startup>
 </web-app>

@@ -8,13 +8,13 @@ public class User {
     private String password;
     private String type;
     private String fullName;        
-    private String Eircode;
+    private String eircode;
     private Trolley trolley;
     private ArrayList<Trolley> orderHistory;
     
     public User(){
-    this.orderHistory = new  ArrayList<Trolley>();
-    
+        this.orderHistory = new  ArrayList<Trolley>();
+        this.trolley = new Trolley();
     }
     
     public String getEmail() {
@@ -53,11 +53,11 @@ public class User {
     }
 
     public String getEircode() {
-        return Eircode;
+        return eircode;
     }
 
     public void setEircode(String eircode) {
-        Eircode = eircode;
+        this.eircode = eircode;
     }
 
     public Trolley getTrolley() {

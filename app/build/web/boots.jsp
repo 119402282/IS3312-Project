@@ -46,7 +46,7 @@
             <div class="products pb-3 mb-5">
                 <c:forEach items="${bootsList}" var="boot">
                 <div class="card">
-                    <img class="card-img-top" src="assets/product-images/${boot.code}.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="assets/product-images/${boot.code}.jpg" alt="Card image cap" onerror="this.src='assets/product-images/null.jpg'">
                     <div class="card-body">
                         <a href="./product?code=${boot.code}"><h4 class="card-title" data-toggle="tooltip" data-placement="bottom" title="<fmt:formatNumber value="${boot.price}" currencySymbol="€" type="currency"/> - ${boot.name}"><fmt:formatNumber value="${boot.price}" currencySymbol="€" type="currency"/> - ${boot.name}</h4></a>
                         <h6>${fn:toUpperCase(boot.brand)}</h6>

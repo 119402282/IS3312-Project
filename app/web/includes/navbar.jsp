@@ -18,7 +18,7 @@
 <nav id="nav" class="container-fluid px-3 px-lg-5 w-100">
     <a class="navbar-brand" href="index.jsp">HikersDelight</a>
     <ul>
-        <li><a class="" href="boots.jsp">Boots</a></li>
+        <li><a class="" href="./boots.jsp">Boots</a></li>
         <%
             HttpSession sesh = request.getSession(true);
             User currUser = (User) sesh.getAttribute("SESSION_USER");

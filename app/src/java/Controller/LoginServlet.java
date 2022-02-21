@@ -1,7 +1,7 @@
 package Controller;
 
+import DAO.UserDAO;
 import static Util.LoginUtil.approveLogin;
-import static Data.UserDAO.getUserByEmail;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,13 +34,12 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       
-        
         HttpSession session = request.getSession(true);
         
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
-        User user = getUserByEmail(email);
+        UserDAO uDao = UserDAO.getInstance();
+        User user = uDao.loadById(email);
         
         String resultType= null;
         String name = null;

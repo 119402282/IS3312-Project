@@ -31,10 +31,18 @@
 
         <!-- Header-->
         <div class="space"></div>
-        <div class="container" style="display: grid; place-items: center; width: 100%; height: 100vh; justify-content: center;">
+        <div class="container">
+            <div class="row">
+                    <h1 class="page-title">Admin Home</h1>
+            </div>
+        </div>
+            
+        <div class="container" style="display: flex; width: 100%; height: 50vh;  align-items: center; justify-content: space-evenly" >
             <div>
-                <h2>This page is still under development! Content will be added to this page for Part 2.</h2>
-                
+                <a href="./admin?page=boots" class="btn-block btn-lg"><button class="btn btn-lg btn-success btn-block">Manage Boots</button></a>
+            </div>
+            <div>
+                <a href="./admin?page=users" class="btn-block btn-lg"><button class="btn btn-lg btn-success btn-block">Manage Users</button></a>   
             </div>
         </div>
         

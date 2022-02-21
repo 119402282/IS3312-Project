@@ -38,7 +38,7 @@
             </div>
             <div id="product-container" class="row">
                 <div class="image-container">
-                    <img class="product-img" src="assets/product-images/${boot.code}.jpg" alt="product image">
+                    <img class="product-img" src="assets/product-images/${boot.code}.jpg" alt="product image" onerror="this.src='assets/product-images/null.jpg'">
                 </div>
                 <div class="product-details">
                     <div class="product-body">
